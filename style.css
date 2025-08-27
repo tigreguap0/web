@@ -9,7 +9,6 @@ html, body {
   height: 100%;
 }
 
-/* General */
 body {
   font-family: 'Arial', sans-serif;
   color: #fff;
@@ -17,6 +16,18 @@ body {
   text-align: center;
 }
 
+/* Canvas partículas */
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Fondo difuminado */
 .background {
   position: fixed;
   top: 0;
@@ -25,7 +36,30 @@ body {
   height: 100%;
   background: url('./assets/fondo.jpg') no-repeat center center/cover;
   filter: blur(8px) brightness(0.6);
-  z-index: -1;
+  z-index: -2;
+}
+
+/* Redes sociales arriba */
+.sociales-top {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  z-index: 10;
+}
+
+.sociales-top a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sociales-top a:hover {
+  color: #1b1b1b;
+  transform: rotate(15deg) scale(1.1);
 }
 
 /* Contenedor principal */
@@ -46,16 +80,16 @@ main {
   flex-grow: 1;
 }
 
-/* -------- Título con efecto -------- */
+/* Título wrapped/glitch */
 .wrapper {
   display: grid;
   place-content: center;
   font-family: "Oswald", sans-serif;
-  font-size: clamp(3rem, 1rem + 10vw, 8rem);
+  font-size: clamp(3.5rem, 1.8rem + 11vw, 9rem); /* tamaño ajustado */
   font-weight: 700;
   text-transform: uppercase;
-  color: hsl(0, 0%, 100%);
-  margin-bottom: 30px; /* espacio antes del botón */
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .wrapper > div {
@@ -70,47 +104,87 @@ main {
   clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
   color: transparent;
   background: linear-gradient(177deg, black 53%, hsl(0, 0%, 100%) 65%);
-  background-clip: text;
   -webkit-background-clip: text;
+  background-clip: text;
   transform: translateX(-0.02em);
 }
 
-/* Botones */
-.botones {
+/* Campo de contraseña centrado */
+.password-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 30px;
 }
 
-.btn {
-  display: inline-block;
-  padding: 15px 30px;
+.password-box input {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  width: 220px;
+  text-align: center;
   background: #1b1b1b;
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.2rem;
   transition: 0.3s;
 }
 
-.btn:hover {
+/* Placeholder centrado y desaparece al escribir o enfocar */
+.password-box input::placeholder {
+  color: #aaa;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.password-box input:focus::placeholder,
+.password-box input:not(:placeholder-shown)::placeholder {
+  opacity: 0;
+}
+
+/* Botón simple */
+.password-box button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  background: #1b1b1b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.password-box button:hover {
   background: #333;
   box-shadow: 0 0 10px #1b1b1b;
 }
 
-/* Redes sociales */
-.sociales {
-  margin-top: 20px;
+/* Shake animation */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-5px); }
+  40% { transform: translateX(5px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
 }
 
-.sociales a {
-  color: #fff;
-  margin: 0 10px;
-  text-decoration: none;
+.shake {
+  animation: shake 0.5s;
+}
+
+/* Mensaje de error */
+#error-box {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  color: #ff4d4d;
+  margin-top: 10px;
   font-weight: bold;
-  transition: 0.3s;
 }
 
-.sociales a:hover {
-  color: #1b1b1b;
+#error-box.show {
+  opacity: 1;
 }
 
 /* Footer siempre abajo */
