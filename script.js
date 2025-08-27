@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
   let intentos = 0;
   const maxIntentos = 3;
-  const contraseñaCorrecta = "tigre123"; // Cambia por tu contraseña
+  const contraseñaCorrecta = "Contraseña"; // Cambia por tu contraseña
   const urlSecreta = "/secreto/";
   const urlError = "/error";
 
@@ -138,3 +138,4 @@ document.addEventListener("DOMContentLoaded", () => {
   initStars();
   animateStars();
 });
+
