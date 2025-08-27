@@ -1,29 +1,87 @@
+/* General */
 body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
   background-color: #080808;
-  color: #FFFFFF;
-  font-family: Arial, sans-serif;
   text-align: center;
-  padding: 20px;
+}
+
+/* Fondo animado */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/fondo.jpg') no-repeat center center/cover;
+  filter: blur(8px) brightness(0.6);
+  z-index: -1;
+}
+
+/* Header */
+header {
+  padding: 40px 20px;
+}
+
+header .avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #1b1b1b;
+  box-shadow: 0 0 15px #1b1b1b;
 }
 
 header h1 {
-  font-size: 3em;
-  text-shadow: 0 0 10px #ff6600;
+  font-size: 3rem;
+  margin: 20px 0 10px;
+  color: #fff;
+  text-shadow: 0 0 10px #1b1b1b;
 }
 
-.avatar {
-  display: none;
-  margin-top: 20px;
-  width: 120px;
-  border-radius: 50%;
-  border: 3px solid #ff6600;
+.descripcion {
+  font-size: 1.2rem;
+  color: #ccc;
 }
 
-.custom-panel {
-  margin-top: 30px;
-  padding: 20px;
-  border: 1px solid #ff6600;
-  border-radius: 12px;
+/* Botones */
+.botones {
+  margin: 30px 0;
+}
+
+.btn {
   display: inline-block;
-  background: rgba(255, 102, 0, 0.1);
+  padding: 15px 30px;
+  background: #1b1b1b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #333;
+  box-shadow: 0 0 10px #1b1b1b;
+}
+
+/* Redes sociales */
+.sociales a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.sociales a:hover {
+  color: #1b1b1b;
+}
+
+/* Footer */
+footer {
+  margin-top: 50px;
+  font-size: 0.9rem;
+  color: #999;
 }

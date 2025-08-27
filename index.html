@@ -5,49 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>tigreguapo 🐯</title>
   <link rel="stylesheet" href="./style.css">
-
-
+  <link rel="icon" type="image/png" href="./assets/icon.png">
 </head>
 <body>
+  <div class="background"></div>
+
   <header>
-    <h1 id="username">tigreguapo</h1>
-    <p id="description">"Aquí el más cyber gangster"</p>
-    <nav>
-      <a href="./serpiente/">Ir a Serpiente 🐍</a>
-    </nav>
+    <img src="./assets/avatar.png" alt="Avatar" class="avatar">
+    <h1 id="titulo">tigreguapo 🐯</h1>
+    <p class="descripcion">Aquí el más cyber gangster</p>
   </header>
 
   <main>
-    <section class="custom-panel">
-      <h2>Personaliza tu perfil</h2>
-      
-      <label>Descripción:
-        <input type="text" id="descInput" placeholder="Escribe tu descripción">
-      </label>
+    <div class="botones">
+      <a href="./serpiente/" class="btn">🐍 Jugar a Serpiente</a>
+    </div>
 
-      <label>Color de fondo:
-        <input type="color" id="bgColorPicker" value="#080808">
-      </label>
-
-      <label>Color de texto:
-        <input type="color" id="textColorPicker" value="#FFFFFF">
-      </label>
-
-      <label>Subir avatar:
-        <input type="file" id="avatarUploader" accept="image/*">
-      </label>
-
-      <label>Audio de fondo:
-        <input type="file" id="audioUploader" accept="audio/*">
-      </label>
-
-      <button id="saveBtn">Guardar cambios</button>
-    </section>
+    <div class="sociales">
+      <a href="https://discord.com" target="_blank">Discord</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+      <a href="https://github.com/tigreguap0" target="_blank">GitHub</a>
+    </div>
   </main>
 
-  <audio id="bgAudio" autoplay loop></audio>
-  <img id="avatar" alt="Avatar" class="avatar">
+  <footer>
+    <p>&copy; 2025 tigreguapo.com</p>
+  </footer>
 
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
