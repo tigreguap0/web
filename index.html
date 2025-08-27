@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serpiente - TigreGuapo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tigre Guapo 🐯</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Fondo de video -->
-    <video autoplay muted loop id="bg-video">
-        <source src="fondo.mp4" type="video/mp4">
-    </video>
+  <header>
+    <h1 id="username">Tigre Guapo 🐯</h1>
+    <p id="description">"Aquí el más cyber gangster"</p>
+    <nav>
+      <a href="./serpiente/">Ir a Serpiente 🐍</a>
+    </nav>
+  </header>
 
-    <!-- Contenedor central -->
-    <div class="container">
-        <h1 class="title">tigreguapo 🐯</h1>
-        <p class="subtitle">Tu página interactiva</p>
+  <main>
+    <section class="custom-panel">
+      <h2>Personaliza tu perfil</h2>
+      
+      <label>Descripción:
+        <input type="text" id="descInput" placeholder="Escribe tu descripción">
+      </label>
 
-        <!-- Botones de enlaces -->
-        <div class="links">
-            <a href="#" class="btn">Enlace 1</a>
-            <a href="#" class="btn">Enlace 2</a>
-            <a href="#" class="btn">Enlace 3</a>
-        </div>
+      <label>Color de fondo:
+        <input type="color" id="bgColorPicker" value="#080808">
+      </label>
 
-        <!-- Redes sociales -->
-        <div class="socials">
-            <a href="#" class="social">🐦</a>
-            <a href="#" class="social">📷</a>
-            <a href="#" class="social">🎮</a>
-        </div>
-    </div>
+      <label>Color de texto:
+        <input type="color" id="textColorPicker" value="#FFFFFF">
+      </label>
 
-    <script src="script.js"></script>
+      <label>Subir avatar:
+        <input type="file" id="avatarUploader" accept="image/*">
+      </label>
+
+      <label>Audio de fondo:
+        <input type="file" id="audioUploader" accept="audio/*">
+      </label>
+
+      <button id="saveBtn">Guardar cambios</button>
+    </section>
+  </main>
+
+  <audio id="bgAudio" autoplay loop></audio>
+  <img id="avatar" alt="Avatar" class="avatar">
+
+  <script src="script.js"></script>
 </body>
 </html>

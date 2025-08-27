@@ -1,37 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serpiente - TigreGuapo</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serpiente 🐍</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Fondo de video -->
-    <video autoplay muted loop id="bg-video">
-        <source src="fondo.mp4" type="video/mp4">
-    </video>
+  <header>
+    <h1>🐍 Juego de la Serpiente 🐍</h1>
+    <nav>
+      <a href="../">Volver al Tigre 🐯</a>
+    </nav>
+  </header>
 
-    <!-- Contenedor central -->
-    <div class="container">
-        <h1 class="title">Serpiente 🐍</h1>
-        <p class="subtitle">Tu página interactiva</p>
+  <main>
+    <h2>¡Juega al Snake!</h2>
+    <canvas id="snakeGame" width="400" height="400"></canvas>
+    <p>Puntuación: <span id="score">0</span></p>
+  </main>
 
-        <!-- Botones de enlaces -->
-        <div class="links">
-            <a href="#" class="btn">Enlace 1</a>
-            <a href="#" class="btn">Enlace 2</a>
-            <a href="#" class="btn">Enlace 3</a>
-        </div>
-
-        <!-- Redes sociales -->
-        <div class="socials">
-            <a href="#" class="social">🐦</a>
-            <a href="#" class="social">📷</a>
-            <a href="#" class="social">🎮</a>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="snake.js"></script>
 </body>
 </html>
