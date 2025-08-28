@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Serpiente</title>
-  <link rel="stylesheet" href="./style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serpiente</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Serpiente</h1>
-    <nav>
-      <a href="../">Volver al Tigre 🐯</a>
-    </nav>
-  </header>
+    <!-- Canvas de partículas para el fondo -->
+    <canvas id="particles"></canvas>
 
-  <main>
-    <h2>¡Juega al Snake!</h2>
-    <canvas id="snakeGame" width="400" height="400"></canvas>
-    <p>Puntuación: <span id="score">0</span></p>
-  </main>
+    <!-- Redes sociales arriba -->
+    <div class="sociales-top">
+        <a href="https://discord.gg/DEQnsA7U9V" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://steamcommunity.com/id/XSerpienteX" target="_blank" rel="noopener noreferrer">Steam</a>
+        <a href="https://steamcommunity.com/profiles/76561199558679743" target="_blank" rel="noopener noreferrer">Counter</a>
+        <a href="https://www.instagram.com/srgio.mll/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.paypal.com/paypalme/tigreguapo" target="_blank" rel="noopener noreferrer">PayPal</a>
+    </div>
 
-  <script src="snake.js"></script>
+    <!-- Título con efecto wave -->
+    <div class="wave-container">
+        <h1 class="wave-text">
+            <span>S</span><span>E</span><span>R</span><span>P</span><span>I</span><span>E</span><span>N</span><span>T</span><span>E</span>
+        </h1>
+    </div>
+
+    <!-- Snake Game -->
+    <div class="container">
+        <p class="score-text">Puntuación: <span id="score">0</span></p>
+        <canvas id="snakeGame" width="400" height="400"></canvas>
+        <button id="restartBtn">Volver a Jugar</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 tigreguapo.com</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="snake.js"></script>
+    <script src="particles.js"></script> <!-- Script de partículas -->
 </body>
 </html>
