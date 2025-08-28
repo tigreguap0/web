@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const passwordInput = document.getElementById("password");
   let intentos = 0;
   const maxIntentos = 3;
-  const contraseñaCorrecta = "Contraseña"; // Cambia por tu contraseña
-  const urlSecreta = "/secreto/";
+  const contraseñaCorrecta = "Portafolio"; // Cambia por tu contraseña
+  const urlSecreta = "/portafolio/";
   const urlError = "/error";
 
   btnEntrar.addEventListener("click", () => {

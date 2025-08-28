@@ -3,49 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ERROR</title>
+<title>Contraseña incorrecta</title>
 <style>
-    body, html {
+    body {
         margin: 0;
         padding: 0;
-        height: 100%;
-        overflow: hidden;
-        cursor: pointer; /* indica al usuario que puede hacer clic */
-    }
-    video {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        z-index: -1;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #111; /* Fondo oscuro */
+        color: #fff;
+        font-family: Arial, sans-serif;
+        font-size: 3rem;
+        text-align: center;
     }
 </style>
 </head>
 <body>
-
-<video id="bgVideo" loop muted>
-    <source src="video.mp4" type="video/mp4">
-    Tu navegador no soporta video en HTML5.
-</video>
-
-<script>
-const video = document.getElementById('bgVideo');
-
-// Función para activar el video con sonido al hacer clic
-function activarVideo() {
-    video.muted = false; // quitar silencio
-    video.play();
-    document.removeEventListener('click', activarVideo); // quitar listener para que no se repita
-}
-
-// Escucha cualquier clic en la página
-document.addEventListener('click', activarVideo);
-</script>
-
+    <h1>Contraseña incorrecta</h1>
 </body>
 </html>
