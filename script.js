@@ -7,25 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function animarTitulo() {
     if (escribiendo) {
-      // Escribir
       document.title = textoTitulo.substring(0, i);
       i++;
       if (i > textoTitulo.length) {
         escribiendo = false;
-        setTimeout(animarTitulo, 1000); // pausa antes de borrar
+        setTimeout(animarTitulo, 1000);
         return;
       }
-      setTimeout(animarTitulo, 200); // velocidad de escritura
+      setTimeout(animarTitulo, 200);
     } else {
-      // Borrar
       document.title = textoTitulo.substring(0, i);
       i--;
       if (i < 0) {
         escribiendo = true;
-        setTimeout(animarTitulo, 500); // pausa antes de volver a escribir
+        setTimeout(animarTitulo, 500);
         return;
       }
-      setTimeout(animarTitulo, 100); // velocidad de borrado
+      setTimeout(animarTitulo, 100);
     }
   }
   animarTitulo();
@@ -122,11 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fillStyle = `rgba(255,255,255,${star.alpha})`;
       ctx.fill();
 
-      // Movimiento hacia arriba
       star.y -= star.speed;
       if (star.y < 0) star.y = canvas.height;
 
-      // Parpadeo
       star.alpha += star.delta;
       if (star.alpha >= 1 || star.alpha <= 0.3) star.delta = -star.delta;
     });
@@ -137,5 +133,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initStars();
   animateStars();
-});
 
+  // -------------------------------
+  // Google Analytics Measurement Protocol - Contador de visitas
+  function generarClientID() {
+    return crypto.randomUUID();
+  }
+
+  const clientID = localStorage.getItem('client_id') || generarClientID();
+  localStorage.setItem('client_id', clientID);
+
+  const payload = {
+    client_id: clientID,
+    events: [
+      {
+        name: 'page_view',
+        params: {
+          page_title: document.title,
+          page_location: window.location.href
+        }
+      }
+    ]
+  };
+
+  const SECRET = 'EkTBz9l-TDaqYd_dwJjaMg'; // tu secreto
+  const MEASUREMENT_ID = 'G-BMLJQ3J5WS'; // reemplaza con tu ID de flujo GA4
+
+  fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${SECRET}`, {
+    method: 'POST',
+    body: JSON.stringify(payload)
+  })
+  .then(() => console.log('Evento page_view enviado a GA4'))
+  .catch(err => console.error('Error enviando evento a GA4:', err));
+});
