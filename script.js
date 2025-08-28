@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // -------------------------------
-  // Máquina de escribir en el título de la pestaña
+
   const textoTitulo = "tigreguapo";
   let i = 0;
   let escribiendo = true;
@@ -28,13 +27,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   animarTitulo();
 
-  // -------------------------------
-  // Control de contraseña
+
   const btnEntrar = document.getElementById("btnEntrar");
   const passwordInput = document.getElementById("password");
   let intentos = 0;
   const maxIntentos = 3;
-  const contraseñaCorrecta = "Portafolio"; // Cambia por tu contraseña
+  const contraseñaCorrecta = "Portafolio"; 
   const urlSecreta = "/portafolio/";
   const urlError = "/error";
 
@@ -84,8 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 500);
   }
 
-  // -------------------------------
-  // Animación de partículas / estrellas parpadeantes
+
   const canvas = document.getElementById("particles");
   const ctx = canvas.getContext("2d");
 
@@ -134,8 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStars();
   animateStars();
 
-  // -------------------------------
-  // Google Analytics Measurement Protocol - Contador de visitas
+
   function generarClientID() {
     return crypto.randomUUID();
   }
@@ -156,8 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
   };
 
-  const SECRET = 'EkTBz9l-TDaqYd_dwJjaMg'; // tu secreto
-  const MEASUREMENT_ID = 'G-BMLJQ3J5WS'; // reemplaza con tu ID de flujo GA4
+  const SECRET = 'EkTBz9l-TDaqYd_dwJjaMg'; 
+  const MEASUREMENT_ID = 'G-BMLJQ3J5WS';
 
   fetch(`https://www.google-analytics.com/mp/collect?measurement_id=${MEASUREMENT_ID}&api_secret=${SECRET}`, {
     method: 'POST',

@@ -118,7 +118,7 @@ function gameOver() {
   ctx.font = "20px Arial";
   ctx.fillText(`Puntuación: ${score}`, canvasSize / 2, canvasSize / 2 + 20);
 
-  restartBtn.classList.add("show"); // Ahora usamos la clase show
+  restartBtn.classList.add("show"); 
 }
 
 function restartGame() {
@@ -131,7 +131,7 @@ function restartGame() {
   food = generateFood();
   lastTime = 0;
   gameRunning = true;
-  restartBtn.classList.remove("show"); // Ocultamos el botón con animación
+  restartBtn.classList.remove("show"); 
   requestAnimationFrame(gameLoop);
 }
 

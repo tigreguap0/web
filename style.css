@@ -1,4 +1,3 @@
-/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +15,6 @@ body {
   text-align: center;
 }
 
-/* Canvas partículas */
 #particles {
   position: fixed;
   top: 0;
@@ -27,7 +25,6 @@ body {
   pointer-events: none;
 }
 
-/* Fondo difuminado */
 .background {
   position: fixed;
   top: 0;
@@ -39,7 +36,6 @@ body {
   z-index: -2;
 }
 
-/* Redes sociales arriba */
 .sociales-top {
   position: fixed;
   top: 20px;
@@ -62,7 +58,6 @@ body {
   transform: rotate(15deg) scale(1.1);
 }
 
-/* Contenedor principal */
 .container {
   display: flex;
   flex-direction: column;
@@ -71,7 +66,6 @@ body {
   padding: 20px;
 }
 
-/* Main centrado */
 main {
   display: flex;
   flex-direction: column;
@@ -80,12 +74,11 @@ main {
   flex-grow: 1;
 }
 
-/* Título wrapped/glitch */
 .wrapper {
   display: grid;
   place-content: center;
   font-family: "Oswald", sans-serif;
-  font-size: clamp(3.5rem, 1.8rem + 11vw, 9rem); /* tamaño ajustado */
+  font-size: clamp(3.5rem, 1.8rem + 11vw, 9rem); 
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 10px;
@@ -109,7 +102,6 @@ main {
   transform: translateX(-0.02em);
 }
 
-/* Campo de contraseña centrado */
 .password-box {
   display: flex;
   flex-direction: column;
@@ -129,7 +121,6 @@ main {
   transition: 0.3s;
 }
 
-/* Placeholder centrado y desaparece al escribir o enfocar */
 .password-box input::placeholder {
   color: #aaa;
   text-align: center;
@@ -142,7 +133,6 @@ main {
   opacity: 0;
 }
 
-/* Botón simple */
 .password-box button {
   margin-top: 10px;
   padding: 12px 20px;
@@ -160,7 +150,6 @@ main {
   box-shadow: 0 0 10px #1b1b1b;
 }
 
-/* Shake animation */
 @keyframes shake {
   0% { transform: translateX(0); }
   20% { transform: translateX(-5px); }
@@ -174,7 +163,6 @@ main {
   animation: shake 0.5s;
 }
 
-/* Mensaje de error */
 #error-box {
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -187,7 +175,6 @@ main {
   opacity: 1;
 }
 
-/* Footer siempre abajo */
 footer {
   margin-top: 20px;
   padding: 10px;
