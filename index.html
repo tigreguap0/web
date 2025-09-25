@@ -1,1 +1,95 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>tigreguapo</title><meta name="description" content="Página oficial de tigreguapo."><link rel="stylesheet" href="/style.css"><link rel="icon" href="./assets/icon.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="./assets/icon.png"><link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet"></head><body><canvas id="particles"></canvas><div class="background"></div><div class="sociales-top"><a href="https://discord.gg/DEQnsA7U9V" target="_blank" rel="noopener noreferrer">Discord</a> <a href="https://steamcommunity.com/id/tigreguapo" target="_blank" rel="noopener noreferrer">Steam</a> <a href="https://github.com/tigreguap0" target="_blank" rel="noopener noreferrer">GitHub</a> <a href="https://www.youtube.com/@tigreguapo" target="_blank" rel="noopener noreferrer">YouTube</a> <a href="https://www.paypal.com/paypalme/tigreguapo" target="_blank" rel="noopener noreferrer">PayPal</a></div><div class="container"><main><div class="wrapper"><div class="top">tigreguapo</div><div class="bottom">tigreguapo</div></div><div class="password-box"><input type="password" id="password" placeholder="Introduce la contraseña" required> <button id="btnEntrar">Entrar</button></div></main><footer><p>&copy; 2025 tigreguapo.com | Visitas: <span id="contador">31</span></p></footer></div><script src="./script.js" defer="defer"></script><script>fetch("https://api.countapi.xyz/hit/tigreguapo/visitas").then(t=>t.json()).then(t=>{document.getElementById("contador").innerText=t.value}).catch(t=>console.error("Error al contar visitas:",t))</script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tigreguapo</title>
+  <meta name="description" content="Página oficial de tigreguapo.">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="icon" href="./assets/icon.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="particles"></canvas>
+  <div class="background"></div>
+
+  <div class="sociales-top">
+    <a href="https://discord.gg/DEQnsA7U9V" target="_blank" rel="noopener noreferrer">Discord</a>
+    <a href="https://steamcommunity.com/id/tigreguapo" target="_blank" rel="noopener noreferrer">Steam</a>
+    <a href="https://github.com/tigreguap0" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a href="https://www.youtube.com/@tigreguapo" target="_blank" rel="noopener noreferrer">YouTube</a>
+    <a href="https://www.paypal.com/paypalme/tigreguapo" target="_blank" rel="noopener noreferrer">PayPal</a>
+  </div>
+
+  <div class="container">
+    <main>
+      <div class="wrapper">
+        <div class="top">tigreguapo</div>
+        <div class="bottom">tigreguapo</div>
+      </div>
+
+      <div class="password-box">
+        <input type="password" id="password" placeholder="Introduce la contraseña" required>
+        <button id="btnEntrar">Entrar</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 tigreguapo.com | Visitas: <span id="contador">31</span></p>
+    </footer>
+  </div>
+
+  <script src="./script.js" defer></script>
+
+  <script>
+    // Contador de visitas con CountAPI
+    fetch('https://api.countapi.xyz/hit/tigreguapo/visitas')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('contador').innerText = data.value;
+      })
+      .catch(err => console.error('Error al contar visitas:', err));
+  </script>
+  
+  <footer>
+    <p>
+      <a href="/aviso-legal.html">Aviso Legal</a> | 
+      <a href="/politica-privacidad.html">Política de Privacidad</a> | 
+      <a href="/politica-cookies.html">Política de Cookies</a>
+    </p>
+  </footer>
+
+  <!-- Banner de Cookies -->
+  <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; right: 0; background: #222; color: #fff; padding: 15px; text-align: center; font-size: 14px; z-index: 9999; display: none;">
+    Este sitio utiliza cookies técnicas y de terceros para mejorar la experiencia. 
+    <a href="/politica-cookies.html" style="color: #4ea3ff; text-decoration: underline;">Leer más</a>.
+    <button id="accept-cookies" style="margin-left: 15px; padding: 5px 10px; border: none; background: #4ea3ff; color: white; cursor: pointer;">Aceptar</button>
+    <button id="reject-cookies" style="margin-left: 5px; padding: 5px 10px; border: none; background: #888; color: white; cursor: pointer;">Rechazar</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const banner = document.getElementById("cookie-banner");
+      const acceptBtn = document.getElementById("accept-cookies");
+      const rejectBtn = document.getElementById("reject-cookies");
+
+      if (!localStorage.getItem("cookiesChoice")) {
+        banner.style.display = "block";
+      }
+
+      acceptBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesChoice", "accepted");
+        banner.style.display = "none";
+        // Aquí puedes activar scripts como Google Analytics si los usas
+      });
+
+      rejectBtn.addEventListener("click", function() {
+        localStorage.setItem("cookiesChoice", "rejected");
+        banner.style.display = "none";
+        // Aquí evitas cargar cookies de terceros
+      });
+    });
+  </script>
+</body>
+</html>
