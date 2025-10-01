@@ -66,30 +66,74 @@
     <a href="/politica-cookies.html" style="color: #4ea3ff; text-decoration: underline;">Leer más</a>.
     <button id="accept-cookies" style="margin-left: 15px; padding: 5px 10px; border: none; background: #4ea3ff; color: white; cursor: pointer;">Aceptar</button>
     <button id="reject-cookies" style="margin-left: 5px; padding: 5px 10px; border: none; background: #888; color: white; cursor: pointer;">Rechazar</button>
+    <button id="cookie-settings" style="margin-left: 5px; padding: 5px 10px; border: none; background: #555; color: white; cursor: pointer;">Configurar</button>
+  </div>
+
+  <!-- Modal de configuración -->
+  <div id="cookie-modal" style="display:none; position:fixed; inset:0; background: rgba(0,0,0,0.6); justify-content:center; align-items:center; z-index:10000;">
+    <div style="background:#fff; padding:20px; border-radius:12px; max-width:500px; margin:auto;">
+      <h3>Configuración de cookies</h3>
+      <form id="cookie-form">
+        <label><input type="checkbox" name="necessary" checked disabled> Necesarias</label><br>
+        <label><input type="checkbox" name="analytics"> Analytics</label><br>
+        <label><input type="checkbox" name="marketing"> Marketing</label><br><br>
+        <button type="submit" style="padding:5px 10px; background:#4ea3ff; color:white; border:none; cursor:pointer;">Guardar</button>
+        <button type="button" id="close-modal" style="padding:5px 10px; background:#888; color:white; border:none; cursor:pointer;">Cerrar</button>
+      </form>
+    </div>
   </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const banner = document.getElementById("cookie-banner");
-      const acceptBtn = document.getElementById("accept-cookies");
-      const rejectBtn = document.getElementById("reject-cookies");
+  document.addEventListener("DOMContentLoaded", function() {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const rejectBtn = document.getElementById("reject-cookies");
+    const settingsBtn = document.getElementById("cookie-settings");
+    const modal = document.getElementById("cookie-modal");
+    const closeModal = document.getElementById("close-modal");
+    const form = document.getElementById("cookie-form");
 
-      if (!localStorage.getItem("cookiesChoice")) {
-        banner.style.display = "block";
-      }
+    function getConsent() {
+      try { return JSON.parse(localStorage.getItem("cookiesChoice")) || null; }
+      catch(e){ return null; }
+    }
 
-      acceptBtn.addEventListener("click", function() {
-        localStorage.setItem("cookiesChoice", "accepted");
-        banner.style.display = "none";
-        // Aquí puedes activar scripts como Google Analytics si los usas
-      });
+    function saveConsent(consent) {
+      localStorage.setItem("cookiesChoice", JSON.stringify(consent));
+    }
 
-      rejectBtn.addEventListener("click", function() {
-        localStorage.setItem("cookiesChoice", "rejected");
-        banner.style.display = "none";
-        // Aquí evitas cargar cookies de terceros
-      });
+    function hideBanner() { banner.style.display = "none"; }
+    function showBanner() { banner.style.display = "block"; }
+
+    if(!getConsent()) showBanner();
+
+    acceptBtn.addEventListener("click", function() {
+      saveConsent({necessary:true, analytics:true, marketing:true, timestamp:new Date().toISOString()});
+      hideBanner();
+      console.log("Cookies aceptadas");
     });
+
+    rejectBtn.addEventListener("click", function() {
+      saveConsent({necessary:true, analytics:false, marketing:false, timestamp:new Date().toISOString()});
+      hideBanner();
+      console.log("Cookies rechazadas (solo necesarias)");
+    });
+
+    settingsBtn.addEventListener("click", function() { modal.style.display = "flex"; });
+    closeModal.addEventListener("click", function() { modal.style.display = "none"; });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      const accepted = {necessary:true};
+      accepted.analytics = form.analytics.checked;
+      accepted.marketing = form.marketing.checked;
+      accepted.timestamp = new Date().toISOString();
+      saveConsent(accepted);
+      modal.style.display="none";
+      hideBanner();
+      console.log("Preferencias de cookies guardadas", accepted);
+    });
+  });
   </script>
 </body>
 </html>
